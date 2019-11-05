@@ -1,6 +1,10 @@
 class Model {
   constructor() {
-    this.todos = ['Go To Work'];
+    this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+  }
+
+  __commit(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos))
   }
 
   bindUpdatedTodos(callback) {
